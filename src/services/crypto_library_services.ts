@@ -7,7 +7,7 @@ export class CryptographyLibrary {
   constructor() {
     this.executablePath = path.resolve(
       __dirname,
-      "../../c_library/crypto-executable"
+      "../../c_library/cryptography_library"
     );
   }
 
@@ -15,11 +15,12 @@ export class CryptographyLibrary {
     filePath: string,
     outputFilePath: string,
     encryptionKey: string,
-    encrypt: string
+    encrypt: string,
+    cipher: string
   ): Promise<string> {
     return new Promise((resolve, reject) => {
       exec(
-        `${this.executablePath} ${filePath} ${outputFilePath} ${encryptionKey} ${encrypt}`,
+        `${this.executablePath} ${filePath} ${outputFilePath} ${encryptionKey} ${encrypt} ${cipher}`,
         (error, stdout, stderr) => {
           if (error) {
             return reject(`Encryption Error: ${error.message}`);

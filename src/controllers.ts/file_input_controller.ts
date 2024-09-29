@@ -19,8 +19,7 @@ export class FileInputController {
     next: NextFunction
   ): Promise<void> {
     try {
-      const { encryptionKey } = req.body;
-      let { encrypt } = req.body;
+      const { encryptionKey, encrypt, cipher } = req.body;
 
       const fileName = req.file?.filename;
 
@@ -41,7 +40,8 @@ export class FileInputController {
         filePath,
         outputFilePath,
         encryptionKey,
-        encrypt
+        encrypt,
+        cipher
       );
 
       this.fileService.deleteFile(filePath);

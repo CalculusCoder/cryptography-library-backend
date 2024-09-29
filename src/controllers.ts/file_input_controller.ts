@@ -23,10 +23,10 @@ export class FileInputController {
 
       const fileName = req.file?.filename;
 
-      if (!fileName) {
-        res.status(400).send("File is required");
-        return;
-      }
+      // if (!fileName) {
+      //   res.status(400).send("File is required");
+      //   return;
+      // }
 
       if (!encryptionKey || typeof encrypt === "undefined") {
         res.status(400).send("Encryption key and encrypt flag are required");

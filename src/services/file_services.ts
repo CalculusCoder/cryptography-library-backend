@@ -2,8 +2,12 @@ import path from "path";
 import { unlink } from "fs";
 
 export class FileService {
-  public getFilePath(fileName: string): string {
-    return path.resolve(__dirname, `../../uploads/${fileName}`);
+  public getFilePath(fileName: string | undefined): string {
+    if (fileName) {
+      return path.resolve(__dirname, `../../uploads/${fileName}`);
+    }
+
+    return "NULL";
   }
 
   public getOutputFilePath(encrypt: string): string {
